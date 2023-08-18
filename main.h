@@ -17,4 +17,8 @@ typedef struct MyStruct
 	int (*myFunc);
 } op_t;
 
+
+
+int _printf(const char *format, ...);
+
 #endif
