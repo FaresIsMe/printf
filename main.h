@@ -4,12 +4,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdbool.h>
-
+#include <limits.h>
 
 #define MAX_BUFFER_SIZE 1024
 #define BUFFER_FLUSH_CONITION -1
 
-#define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0, g0}
 
 /**
  * struct MyStruct - A struct to manipulate opeartions and functions
@@ -27,6 +27,7 @@ typedef struct Params
 	bool isMinusFlag;
 	bool isHashtagFlag;
 	bool isZeroFlag;
+	bool isSpace;
 
 	unsigned int width;
 	unsigned int precision;
