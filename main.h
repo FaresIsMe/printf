@@ -27,7 +27,7 @@ typedef struct Params
 	bool isMinusFlag;
 	bool isHashtagFlag;
 	bool isZeroFlag;
-	bool isSpace;
+	bool isSpaceFlag;
 
 	unsigned int width;
 	unsigned int precision;
@@ -45,7 +45,9 @@ typedef struct MyStruct
 int _putchar(char);
 int _puts(char *):
 
-//functions to print numbers
+//getters functions
+int get_flag(char *, specifier_params *);
+int get_precision(
 
 // main printf function
 int _printf(const char *format, ...);

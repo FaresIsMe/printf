@@ -9,20 +9,21 @@
  * Return: It returns 1 if a flag was set and 0 if wasn't
 */
 
-int myFlags(char *theChar, specifier_params* mySpec)
+int myFlags(char *theChar, specifier_params *mySpec)
 {
 	int myCond = 0;
+
 	if (theChar == '-')
 	{
 		(*mySpec).isMinusFlag = 1;
 		myCond = 1;
 	}
-	else if(theChar == '+')
+	else if (theChar == '+')
 	{
 		(*mySpec).isPlusFlag = 1;
 		myCond = 1;
 	}
-	else if(theChar == '#')
+	else if (theChar == '#')
 	{
 		(*mySpec).isHashtagFlag = 1;
 		myCond = 1;
