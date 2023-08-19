@@ -47,8 +47,8 @@ int _puts(char *):
 
 //getters functions
 int myFlags(char *, specifier_params *);
-int myPrecision(char *, specifier_params *, va_list); 
-
+char *myPrecision(char *, specifier_params *, va_list); 
+char *myWidth(char *, specifier_params *, va_list);
 // main printf function
 int _printf(const char *format, ...);
 
