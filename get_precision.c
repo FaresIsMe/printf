@@ -10,7 +10,7 @@
  * after reading the precision
 */
 
-char *get_precision(char *myChar, specifier_params *myPPointer, va_list Input)
+char *myPrecision(char *myChar, specifier_params *myPPointer, va_list Input)
 {
 	int theLastResult = 0;
 
