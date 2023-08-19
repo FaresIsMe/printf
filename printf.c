@@ -27,15 +27,15 @@ int _printf(const char *format, ...)
 		}
 		start = s;
 		s++;
-		while (get_flag(s, &params))
+		while (myFlags(s, &params))
 		{
 			s++;
 		}
-		s = get_width(s, &params, arg);
-		s = get_precision(s, &params, arg);
+		s = myWidth(s, &params, arg);
+		s = myPercision(s, &params, arg);
 		if (get_modifier(s, &params))
 			s++;
-		if (!get_specifier(s))
+		if (!mySpecifier(s))
 			sum += print_from_to(start, s,
 				params.isShort || params.isLong ? s - 1 : 0);
 		else
