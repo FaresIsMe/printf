@@ -37,7 +37,7 @@ typedef struct Params
 typedef struct MyStruct
 {
 	char *op;
-	int (*myFunc) (va_list, function_params*);
+	int (*myFunc) (va_list, specifier_params *);
 } op_t;
 
 
