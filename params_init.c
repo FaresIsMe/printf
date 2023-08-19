@@ -13,6 +13,7 @@ void init_params(specifier_params *params, va_list arg)
 	params->isMinusFlag = 0;
 	params->isHashtagFlag = 0;
 	params->isZeroFlag = 0;
+	params->isSpace = 0;
 	params->isShort = 0;
 	params->width = 0;
 	params->precision = UINT_MAX;
