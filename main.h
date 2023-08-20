@@ -5,11 +5,16 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <string.h>
 
 #define MAX_BUFFER_SIZE 1024
 #define BUFFER_FLUSH_CONITION -1
 
-#define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0, g0}
+
+#define IS_UNSIGNED 20
+#define IS_LOWERCASE 24
+
+#define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * struct MyStruct - A struct to manipulate opeartions and functions
@@ -45,6 +50,9 @@ typedef struct MyStruct
 int _putchar(char);
 int _puts(char *):
 
+
+//convertor function
+char *convertor(long int, int, int);
 //getters functions
 int myFlags(char *, specifier_params *);
 char *myPrecision(char *, specifier_params *, va_list); 
