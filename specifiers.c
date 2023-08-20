@@ -34,3 +34,20 @@ int mySpecifier(char s)
 	}
 	return (NULL);
 }
+}
+/**
+ * print_function_cal - responsible for retrieving the appropriate printing function
+ * @s: the specifier character
+ * @Input: for repeated variables
+ * @p: A pointer to a structure of type specifier_params
+ * Return: The right function on success (myFunc), 0 if (myFunc is null)
+*/
+int print_function_call(char s, va_list Input, specifier_params p)
+{
+	int (*myFunc) (va_list, specifier_params*) = mySpecifier(s);
+
+	if (myFunc != NULL)
+	return (myFunc(Input, &p));
+	else
+	return (0);
+}
