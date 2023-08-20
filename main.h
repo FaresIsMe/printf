@@ -11,8 +11,8 @@
 #define BUFFER_FLUSH_CONITION -1
 
 
-#define IS_UNSIGNED 20
-#define IS_LOWERCASE 24
+#define IS_UNSIGNED 1
+#define IS_LOWERCASE 2
 
 #define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
