@@ -7,24 +7,24 @@
  * will use to determine which data type will be printed
 */
 
-int mySpecifier(char s)
+int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
 {
-	op_t Specifiers[] = {
-		{"c", printChar},
-		{"s", printString},
-		{"d", printInt},
-		{"i", printInt},
-		{"%", printPercent},
-		{"b", printBinary},
-		{"o", printOctal},
-		{"u", PrintUnsigned},
-		{"x", printhex},
-		{"X", printHEX},
-		{"p", printAddress},
-		{"S", printSTRING},
-		{"r", printRev},
-		{"R", printRot13},
-		{NULL, NULL}
+		op_t Specifiers[] = {
+				{"c", printingMyChar},
+				{"s", print_string},
+				{"d", printInt},
+				{"i", printInt},
+				{"%", printMyPercent},
+				{"b", printBinary},
+				{"o", printOctal},
+				{"u", printUnsigned},
+				{"x", printhex},
+				{"X", printHEX},
+				{"p", printAddress},
+				{"S", printS},
+				{"r",  printingMyStringReveresed},
+				{"R", printROT13},
+				{NULL, NULL}
 	};
 	int i = 0;
 
@@ -54,4 +54,22 @@ int print_function_call(char s, va_list Input, specifier_params p)
 		return (myFunc(Input, &p));
 	else
 		return (0);
+}
+/**
+ * printInt - integers it prints
+ * @Input:idk
+ * @myParams: something idk
+ * Return:what print_numbers return on success
+*/
+int printInt(va_list Input, specifier_params *myParams)
+{
+		long integer;
+
+	if (myParams->isLong)
+		integer = va_arg(Input, long);
+	else if (myParams->isShort)
+		integer = (short int)va_arg(Input, int);
+	else
+		integer = (int)va_arg(Input, int);
+	return (print_number(convert(integer, 10, 0, myParams), myParams));
 }
