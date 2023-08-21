@@ -65,11 +65,12 @@ int _puts(char *);
 /* initilzation function */
 void init_params(specifier_params *, va_list);
 /* strings printing functions */
-int printingMyStringReveresed(va_list);
+int printingMyStringReveresed(va_list, specifier_params *);
 int printingMyChar(va_list, specifier_params *);
 int printMyPercent(va_list, specifier_params *);
 int printROT13(va_list, specifier_params *);
 int printS(va_list, specifier_params *);
+int print_string(va_list, specifier_params *);
 /* specifier functions */
 int mySpecifier(char);
 int print_function_call(char, va_list, specifier_params);
@@ -80,15 +81,22 @@ int printHEX(va_list, specifier_params *);
 int printhex(va_list, specifier_params *);
 int printOctal(va_list, specifier_params *);
 int printUnsigned(va_list, specifier_params *);
+int print_numbers(char *, specifier_params *);
 /* convertor function */
 char *convertor(long int, int, int, specifier_params *);
 /* getters functions */
 int myFlags(char *, specifier_params *);
 char *myPrecision(char *, specifier_params *, va_list);
 char *myWidth(char *, specifier_params *, va_list);
+int myModifier(char *, specifier_params *);
+/* printing shifting function */
+int printMyNumberWithRightShift(char *, specifier_params *);
+int printMyNumberWithLeftShift(char *, specifier_params *);
 /* utils functions */
 int isDigit(char);
 int _strlen(char *);
+int print_from_to(char *, char *, char *);
+int printMyPercent(va_list, specifier_params *);
 /* main printf function */
 int _printf(const char *format, ...);
 #endif
