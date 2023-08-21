@@ -3,18 +3,18 @@
 /**
  * print_numbers - A function to print my number after it was
  * converted to a string
- * @myString: A pointer to my number after it was converted a string
+ * @str: A pointer to my number after it was converted a string
  * @myParams: A pointer to specifier_params variable that is used to determine
  * some conditions
  * Return: It returns an integer determine how many chars were printed
 */
 
-int print_numbers(char *myString, specifier_params *myParams)
+int print_numbers(char *str, specifier_params *myParams)
 {
 	unsigned int i = _strlen(str);
 	int neg;
 
-	if (!(*myParams).isUnsigned && *myString == '-')
+	if (!(*myParams).IsUnSigned && *str == '-')
 		neg = 1;
 	else
 		neg  = 0;
@@ -37,10 +37,10 @@ int print_numbers(char *myString, specifier_params *myParams)
 		str = str - 1;
 		*str =  '-';
 	}
-	if ((*myParams).isisMinusFlag == 1)
-		return (printMyNumbersWithLeftShift(myString, myParams));
+	if ((*myParams).isMinusFlag == 1)
+		return (printMyNumbersWithLeftShift(str, myParams));
 	else
-		return (printMyNumberWithRightShift(myString, myParams));
+		return (printMyNumberWithRightShift(str, myParams));
 }
 
 /**
@@ -60,8 +60,8 @@ int printMyNumberWithRightShift(char *myString, specifier_params *myP)
 
 	if ((*myP).isZeroFlag && !(*myP).isMinusFlag)
 		myPadChar = '0';
-	neg = neg2 = (!(*myP).isUnSigned && *myString == '-');
-	if (neg && i < (*myP).iswidth && myPadChar == '0' && !((*myP).isMinusFlag)
+	neg = neg2 = (!(*myP).IsUnSigned && *myString == '-');
+	if (neg && i < (*myP).width && myPadChar == '0' && !((*myP).isMinusFlag))
 			myString = myString + 1;
 	else
 		neg = 0;
@@ -73,14 +73,14 @@ int printMyNumberWithRightShift(char *myString, specifier_params *myP)
 	if ((*myP).isPlusFlag && !neg2 && myPadChar == '0' && !(*myP).isUnSigned)
 		n = n  + _putchar('+');
 	else if (!(*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2 &&
-		!(*myP).isUnSigned && (*myP).isZeroFlag)
+		!(*myP).IsUnSigned && (*myP).isZeroFlag)
 		n = n + _putchar(' ');
 	while (i++ < (*myP).width)
 		n = n + _putchar(myPadChar);
 	if (neg && myPadChar == ' ')
 		n = n + _putchar('-');
 	if ((*myP).isPlusFlag && (*myP).isSpaceFlag && !neg &&
-		!(*myP).isUnSigned && (*myP).isZeroFlag)
+		!(*myP).IsUnSigned && (*myP).isZeroFlag)
 		n = n + _putchar(' ');
 	n = n + _puts(myString);
 	return (n);
