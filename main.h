@@ -66,8 +66,9 @@ int printBinary(va_list, specifier_params *);
 int printHEX(va_list, specifier_params *);
 int printhex(va_list, specifier_params *);
 int printOctal(va_list, specifier_params *);
+int printUnsigned(va_list, specifier_params *);
 //convertor function
-char *convertor(long int, int, int);
+char *convertor(long int, int, int, specifier_params *);
 //getters functions
 int myFlags(char *, specifier_params *);
 char *myPrecision(char *, specifier_params *, va_list); 

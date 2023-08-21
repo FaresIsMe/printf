@@ -112,7 +112,7 @@ int printMyNumberWithLeftShift(char *myString, specifier_params *myP)
 		_putchar('+');
 		n = n + 1, i = i + 1;
 	}
-	else if ((*myP).isSpaceFlag && !neg2 && (*myP).isUnSigned)
+	else if ((*myP).isSpaceFlag && !neg2 && (*myP).IsUnSigned)
 	{
 		_putchar(' ');
 		n = n + 1, i = i + 1;

@@ -32,7 +32,7 @@ int printBinary(va_list Input, specifier_params *myParams)
 
 	if (myParams->isHashtagFlag && num)
 	*--s = '0';
-	myParams->isUnsigned = 1;
+	myParams->IsUnSigned = 1;
 	return(n += print_numbers(s, myParams));
 }
 /**
@@ -60,7 +60,7 @@ int printHEX(va_list Input, specifier_params *myParams)
 		*--s = 'X';
 		*--s = '0';
 	}
-	myParams->isUnsigned = 1;
+	myParams->IsUnSigned = 1;
 	return (n += print_numbers(s, myParams));
 }
 /**
@@ -88,7 +88,7 @@ int printhex(va_list Input, specifier_params *myParams)
 		*--s = 'X';
 		*--s = '0';
 	}
-	myParams->isUnsigned = 1;
+	myParams->IsUnSigned = 1;
 	return (n += print_numbers(s, myParams));
 }
 /**
@@ -115,6 +115,6 @@ int printOctal(va_list Input, specifier_params *myParams)
 	{
 		*--s = '0';
 	}
-	myParams->isUnsigned = 1;
+	myParams->IsUnSigned = 1;
 	return (n += print_numbers(s, myParams));
 }
