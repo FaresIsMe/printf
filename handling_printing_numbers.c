@@ -62,7 +62,7 @@ int printMyNumberWithRightShift(char *myString, specifier_params *myP)
 		myPadChar = '0';
 	neg = neg2 = (!(*myP).IsUnSigned && *myString == '-');
 	if (neg && i < (*myP).width && myPadChar == '0' && !((*myP).isMinusFlag))
-			myString = myString + 1;
+		myString = myString + 1;
 	else
 		neg = 0;
 	if ((*myP).isPlusFlag && !neg2)

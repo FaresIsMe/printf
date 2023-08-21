@@ -27,13 +27,13 @@ int printAddress(va_list Input, specifier_params *myParams)
 int printBinary(va_list Input, specifier_params *myParams)
 {
 	unsigned long int num = va_arg(Input, unsigned long int);
-	char *s = convertor(num, 2,IS_UNSIGNED, myParams);
+	char *s = convertor(num, 2, IS_UNSIGNED, myParams);
 	int n = 0;
 
 	if (myParams->isHashtagFlag && num)
 	*--s = '0';
 	myParams->IsUnSigned = 1;
-	return(n += print_numbers(s, myParams));
+	return (n += print_numbers(s, myParams));
 }
 /**
  * printHEX - it does what it does

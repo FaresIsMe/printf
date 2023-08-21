@@ -62,21 +62,6 @@ int printingMyStringReveresed(va_list strPtr, specifier_params *myParams)
 }
 
 /**
- * printMyPercent - A function to print % using printf
- * @myPtr: A pointer to the list of parameters
- * @myParams: The parameters of myPtr
- *
- * Return: It returns 1
-*/
-int printMyPercent(va_list myPtr, specifier_params *myParams)
-{
-	(void)myParams;
-	(void)myPtr;
-	_putchar('%');
-	return (1);
-}
-
-/**
  * printROT13 - A function to print the string in rot13 cipher
  * @myPtr: Pointer to the passed string
  * @myParams: The parameters of my string (It will not be used anyway)
@@ -128,17 +113,70 @@ int printS(va_list Input, specifier_params *myParams)
 
 	for (; *string != '\0'; string++)
 	{
-		if ((*string < 32 && *string > 0)|| *string >= 127)
+		if ((*string < 32 && *string > 0) || *string >= 127)
 		{
 			bytes_sum += _putchar('\\');
 			bytes_sum += _putchar('x');
-			X = convertor(*string, 16, 0,myParams);
+			X = convertor(*string, 16, 0, myParams);
 			if (X[1] == NULL)
 				bytes_sum += _putchar('0');
 			bytes_sum += _puts(X);
 		}
 		else
-		bytes_sum += _putchar(*string);
+			bytes_sum += _putchar(*string);
 	}
 	return (bytes_sum);
+}
+
+/**
+ * print_string - A function to print the string that was passed
+ * to printf
+ * @myString: This is a pointer to the string that
+ * should be printed
+ * @myParams: A pointer to a specifier_params variable
+ *
+ * Return: It returns the number of chars that were printed
+*/
+
+int print_string(va_list myString, specifier_params *myParams)
+{
+	char *myString = va_arg(myString, char *);
+	char myPadChar = ' ';
+	unsigned int pad = 0, mySum = 0, i = 0, j;
+
+	void(myParams);
+	if ((int)!myString)
+		myString = "null";
+
+	j = _strlen(myString);
+	pad = _strlen(myString);
+
+	if ((*myParams).precision < pad)
+		j = pad = (*myParams).precision;
+	if ((*myParams).isMinusFlag)
+	{
+		if ((*myParams).precision != UINT_MAX)
+		{
+			for (i = 0; i < pad; i++)
+				mySum = mySum + _putChar(*myString++);
+		}
+		else
+			mySum = mySum + _puts(myString);
+	}
+	while (j++ < (*myParams).width)
+		mySum = mySum + _putchar(myPadChar);
+	if (!(*myParams).isMinusFlag)
+	{
+		if ((*myParams).precision != UINT_MAX)
+		{
+			for (i = 0; i < pad; i++)
+			{
+				mySum = mySum + _putchar(*myString);
+				myString = myString + 1;
+			}
+		}
+		else
+			mySum = mySum + _puts(myString);
+	}
+	return (mySum);
 }

@@ -56,3 +56,45 @@ int print_from_to(char *myStart, char *myEnd, char *theException)
 	}
 	return (mySum);
 }
+
+/**
+ * printMyPercent - A function to print % using printf
+ * @myPtr: A pointer to the list of parameters
+ * @myParams: The parameters of myPtr
+ *
+ * Return: It returns 1
+*/
+
+int printMyPercent(va_list myPtr, specifier_params *myParams)
+{
+	(void)myParams;
+	(void)myPtr;
+	_putchar('%');
+	return (1);
+}
+
+/**
+ * myModifier - A function to determine if there is a long
+ * or short modifier
+ * @myChar: A pointer to the char to be checked
+ * @myParams: A pointer to specifier_params variable
+ *
+ * Return: It returns 1 or 0
+*/
+
+int myModifier(char *myChar, specifier_params *myParams)
+{
+	int i = 0;
+
+	if (*myChar == 'h')
+	{
+		(*myParams).isLong = 1;
+		i = 1;
+	}
+	else if (myChar == 'l')
+	{
+		(*myParams).isShort = 1;
+		i = 1;
+	}
+	return (i);
+}

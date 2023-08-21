@@ -4,20 +4,22 @@
  * convertor - A function to convert any number in any base to a string
  * @num: The inputed number
  * @myBase: The base of the inputed number
- * @myFlags: An integer that represents if some flags are
+ * @myFlag: An integer that represents if some flags are
  * included in the inputed number
+ * @myP: A pointer that will not be used here
+ * Return: It returns a pointer to the num after conversion to a string
 */
 
-char* convertor(long int num, int myBase,int myFlag, specifier_params *myParams)
+char *convertor(long int num, int myBase, int myFlag, specifier_params *myP)
 {
 	char *numbersArray;
 	static char myBuffer[50];
 	char theSign = 0;
 	char *ptr;
 	unsigned long conditionNum = num;
-	(void)myParams;
-	
-	numbersArray = (char*)malloc(17 * sizeof(char));
+	(void)myP;
+
+	numbersArray = (char *)malloc(17 * sizeof(char));
 	if (!(myFlags & IS_UNSIGNED) && num < 0)
 	{
 		conditionNum = -1 * num;
@@ -30,18 +32,17 @@ char* convertor(long int num, int myBase,int myFlag, specifier_params *myParams)
 
 	ptr = &myBuffer[49];
 	*ptr = '\0';
-	do
-	{
+	do {
 		ptr = ptr - 1;
 		*ptr = numbersArray[num % myBase];
 		num = num / 10;
-	}(num)
+	} (num);
 
 	if (sign != 0)
 	{
 		ptr = ptr - 1;
 		*ptr = sign;
 	}
-	free (numbersArray);
+	free(numbersArray);
 	return (ptr);
 }

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_precision - A function to get the precision of the specifier
+ * myPrecision - A function to get the precision of the specifier
  * @myChar: Pointer to the current char that we are reading in the format
  * @myPPointer: A pointer to a precision variable
  * @Input: Pointer to the inputed variadic function input
