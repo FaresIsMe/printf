@@ -112,7 +112,7 @@ int printROT13(va_list myPtr, specifier_params *myParams)
 	return (sum);
 }
 /**
- *printS - prints the no printable :)
+ *printS - prints the non printable :)
  *@Input: the input
  *@myParams: idk
  *Return: the bytes_sum on success
