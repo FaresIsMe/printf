@@ -51,11 +51,12 @@ int _putchar(char);
 int _puts(char *):
 //initilzation function
 void init_params(specifier_params *, va_list);
-
+//strings printing functions
+int printingMyStringReveresed(va_list);
+int printingMyChar(va_list, specifier_params *);
 //specifier functions
 int mySpecifier(char);
 int print_function_call(char, va_list, specifier_params)'
-
 //function to handle numbers
 int printAddress(va_list, specifier_params *);
 int printBinary(va_list, specifier_params *);
