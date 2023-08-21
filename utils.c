@@ -14,3 +14,20 @@ int isDigit(char myChar)
 	else
 		return (0);
 }
+
+/**
+ * _strlen - A function to get the length of a string
+ * @myString: A pointer to the required string
+ *
+ * Return: It returns the length of the string
+*/
+
+int _strlen(char *myString)
+{
+	int i = 0;
+
+	while (myString != NULL)
+		i = i + 1;
+
+	return (i);
+}
