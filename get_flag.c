@@ -13,27 +13,27 @@ int myFlags(char *theChar, specifier_params *mySpec)
 {
 	int myCond = 0;
 
-	if (theChar == '-')
+	if (*theChar == '-')
 	{
 		(*mySpec).isMinusFlag = 1;
 		myCond = 1;
 	}
-	else if (theChar == '+')
+	else if (*theChar == '+')
 	{
 		(*mySpec).isPlusFlag = 1;
 		myCond = 1;
 	}
-	else if (theChar == '#')
+	else if (*theChar == '#')
 	{
 		(*mySpec).isHashtagFlag = 1;
 		myCond = 1;
 	}
-	else if (theChar == '0')
+	else if (*theChar == '0')
 	{
 		(*mySpec).isZeroFlag = 1;
 		myCond = 1;
 	}
-	else if (theChar == ' ')
+	else if (*theChar == ' ')
 	{
 		(*mySpec).isSpaceFlag = 1;
 		myCond = 1;

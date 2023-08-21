@@ -23,7 +23,7 @@ int print_numbers(char *str, specifier_params *myParams)
 		str =  str + 1;
 		i =  i  - 1;
 	}
-	if ((*myParams).precision != UNIT_MAX)
+	if ((*myParams).precision != UINT_MAX)
 	{
 		while (i < (*myParams).precision)
 		{
@@ -38,7 +38,7 @@ int print_numbers(char *str, specifier_params *myParams)
 		*str =  '-';
 	}
 	if ((*myParams).isMinusFlag == 1)
-		return (printMyNumbersWithLeftShift(str, myParams));
+		return (printMyNumberWithLeftShift(str, myParams));
 	else
 		return (printMyNumberWithRightShift(str, myParams));
 }
@@ -65,12 +65,12 @@ int printMyNumberWithRightShift(char *myString, specifier_params *myP)
 		myString = myString + 1;
 	else
 		neg = 0;
-	if ((*myP).isPlusFlag && !neg2)
-	|| ((*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2)
+	if (((*myP).isPlusFlag && !neg2)
+	|| ((*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2))
 		i = i + 1;
 	if (neg && myPadChar == '0')
 		n = n + _putchar('-');
-	if ((*myP).isPlusFlag && !neg2 && myPadChar == '0' && !(*myP).isUnSigned)
+	if ((*myP).isPlusFlag && !neg2 && myPadChar == '0' && !(*myP).IsUnSigned)
 		n = n  + _putchar('+');
 	else if (!(*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2 &&
 		!(*myP).IsUnSigned && (*myP).isZeroFlag)
@@ -102,12 +102,12 @@ int printMyNumberWithLeftShift(char *myString, specifier_params *myP)
 
 	if ((*myP).isZeroFlag && !(*myP).isMinusFlag)
 		myPadChar = '0';
-	neg = neg2 = (!myP->isUnSigned && *myString = '-');
-	if (neg && i < (*myP).iswidth && myPadChar == '0' && !(*myP).isMinusFlag)
+	neg = neg2 = (!myP->IsUnSigned && *myString == '-');
+	if (neg && i < (*myP).width && myPadChar == '0' && !(*myP).isMinusFlag)
 		myString = myString + 1;
 	else
 		neg = 0;
-	if ((*myP).isPlusFlag && !neg2 && myP->isUnSigned)
+	if ((*myP).isPlusFlag && !neg2 && myP->IsUnSigned)
 	{
 		_putchar('+');
 		n = n + 1, i = i + 1;
@@ -133,15 +133,15 @@ int printMyNumberWithLeftShift(char *myString, specifier_params *myP)
 */
 int printUsigned(va_list Input, specifier_params *myParams)
 {
-	unsigned long AMR;
+	unsigned long amr;
 
 	if (myParams->isLong)
-	AMR = (unsigned long)va_arg(Input, unsigned long);
+	amr = (unsigned long)va_arg(Input, unsigned long);
 	else if (myParams->isShort)
-	AMR = (unsigned short int)va_arg(Input, unsigned short int);
+	amr = (unsigned short int)va_arg(Input, unsigned int);
 	else
-	AMR = (unsigned int)va_arg(Input, unsigned int);
+	amr = (unsigned int)va_arg(Input, unsigned int);
 
 	myParams->IsUnSigned = 1;
-	return (print_numbers(1, 10, IS_UNSIGNED, myParams));
+	return (print_numbers(convertor(amr, 10, IS_UNSIGNED, myParams), myParams));
 }

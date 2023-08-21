@@ -36,7 +36,7 @@ int _putchar(char c)
 	}
 	if (c != BUFFER_FLUSH_CONDITION)
 	{
-		buffer[i++];
+		buffer[i++] = c;
 	}
 	return (1);
 }
