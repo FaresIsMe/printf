@@ -56,9 +56,10 @@ int printingMyStringReveresed(va_list);
 int printingMyChar(va_list, specifier_params *);
 int printMyPercent(va_list, specifier_params *);
 int printROT13(va_list, specifier_params *);
+int printS(va_list, specifier_params *);
 //specifier functions
 int mySpecifier(char);
-int print_function_call(char, va_list, specifier_params)'
+int print_function_call(char, va_list, specifier_params);
 //function to handle numbers
 int printAddress(va_list, specifier_params *);
 int printBinary(va_list, specifier_params *);
