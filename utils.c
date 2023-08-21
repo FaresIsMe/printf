@@ -31,3 +31,28 @@ int _strlen(char *myString)
 
 	return (i);
 }
+
+/**
+ * print_from_to - A function to print from specific address to a specific end
+ * @myStart: A pointer to the beginning of printing
+ * @myEnd: A pointer to the end of printing
+ * @theException: A pointer to the char that shouldn't be printed
+ *
+ * Return: It returns the chars that were printed
+*/
+
+int print_from_to(char *myStart, char *myEnd, char *theException)
+{
+	int mySum = 0;
+
+	while (myStart <= myEnd)
+	{
+		if (start != theException)
+		{
+			_putchar(start);
+			mySum = mySum + 1;
+		}
+		start = start + 1;
+	}
+	return (mySum);
+}
