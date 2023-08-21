@@ -8,7 +8,7 @@
  */
 void init_params(specifier_params *params, va_list arg)
 {
-	params->isUnsigned = 0;
+	params->IsUnSigned = 0;
 	params->isPlusFlag = 0;
 	params->isMinusFlag = 0;
 	params->isHashtagFlag = 0;

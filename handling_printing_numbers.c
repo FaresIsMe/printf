@@ -125,3 +125,23 @@ int printMyNumberWithLeftShift(char *myString, specifier_params *myP)
 	}
 	return (n);
 }
+/**
+ * printUsigned - unsigned
+ *@Input: the input
+ *@myParams: idk
+ *Return: whatever print_numbers return
+*/
+int printUsigned(va_list Input, specifier_params *myParams)
+{
+	unsigned long AMR;
+
+	if (myParams->isLong)
+	AMR = (unsigned long)va_arg(Input, unsigned long);
+	else if (myParams->isShort)
+	AMR = (unsigned short int)va_arg(Input, unsigned short int);
+	else
+	AMR = (unsigned int)va_arg(Input, unsigned int);
+
+	myParams->IsUnSigned = 1;
+	return (print_numbers(1, 10, IS_UNSIGNED, myParams));
+}
