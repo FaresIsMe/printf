@@ -49,15 +49,28 @@ typedef struct MyStruct
 //functions to handle chars
 int _putchar(char);
 int _puts(char *):
+//initilzation function
+void init_params(specifier_params *, va_list);
 
+//specifier functions
+int mySpecifier(char);
+int print_function_call(char, va_list, specifier_params)'
 
+//function to handle numbers
+int printAddress(va_list, specifier_params *);
+int printBinary(va_list, specifier_params *);
+int printHEX(va_list, specifier_params *);
+int printhex(va_list, specifier_params *);
+int printOctal(va_list, specifier_params *);
 //convertor function
 char *convertor(long int, int, int);
 //getters functions
 int myFlags(char *, specifier_params *);
 char *myPrecision(char *, specifier_params *, va_list); 
 char *myWidth(char *, specifier_params *, va_list);
+//utils functions
+int isDigit(char);
+int _strlen(char *);
 // main printf function
 int _printf(const char *format, ...);
-
 #endif
