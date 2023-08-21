@@ -18,8 +18,6 @@ int print_numbers(char *myString, specifier_params *myParams)
 		neg = 1;
 	else
 		neg  = 0;
-
-
 	if (neg == 1)
 	{
 		str =  str + 1;
@@ -34,16 +32,14 @@ int print_numbers(char *myString, specifier_params *myParams)
 			*str = '0';
 		}
 	}
-	
 	if (neg == 1)
 	{
 		str = str - 1;
 		*str =  '-';
 	}
-
 	if ((*myParams).isisMinusFlag == 1)
 		return (printMyNumbersWithLeftShift(myString, myParams);
 	else
 		return (printMyNumberWithRightShift(myString, myParams);
-
 }
+
