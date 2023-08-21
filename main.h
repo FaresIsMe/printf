@@ -36,7 +36,6 @@ typedef struct Params
 	bool IsUnSigned;
 	bool isShort;
 	bool isLong;
-	bool isPlusFlag;
 	bool isMinusFlag;
 	bool isHashtagFlag;
 	bool isZeroFlag;
