@@ -8,13 +8,14 @@
  * included in the inputed number
 */
 
-char* convertor(long int num, int myBase,int myFlags)
+char* convertor(long int num, int myBase,int myFlag, specifier_params *myParams)
 {
 	char *numbersArray;
 	static char myBuffer[50];
 	char theSign = 0;
 	char *ptr;
 	unsigned long conditionNum = num;
+	(void)myParams;
 	
 	numbersArray = (char*)malloc(17 * sizeof(char));
 	if (!(myFlags & IS_UNSIGNED) && num < 0)

@@ -48,7 +48,7 @@ typedef struct MyStruct
 
 //functions to handle chars
 int _putchar(char);
-int _puts(char *):
+int _puts(char *);
 //initilzation function
 void init_params(specifier_params *, va_list);
 //strings printing functions

@@ -111,6 +111,34 @@ int printROT13(va_list myPtr, specifier_params *myParams)
 	}
 	return (sum);
 }
+/**
+ *printS - prints the no printable :)
+ *@Input: the input
+ *@myParams: idk
+ *Return: the bytes_sum on success
+*/
+int printS(va_list Input, specifier_params *myParams)
+{
+	char *string = va_ag(Input, char *);
+	char *X;
+	int bytes_sum = 0;
 
+	if (string == NULL)
+	return (_puts(NULL));
 
-
+	for (; *string != '\0'; string++)
+	{
+		if ((*string < 32 && *string > 0)|| *string >= 127)
+		{
+			bytes_sum += _putchar('\\');
+			bytes_sum += _putchar('x');
+			X = convertor(*string, 16, 0,myParams);
+			if (X[1] == NULL)
+				bytes_sum += _putchar('0');
+			bytes_sum += _puts(X);
+		}
+		else
+		bytes_sum += _putchar(*string);
+	}
+	return (bytes_sum);
+}
