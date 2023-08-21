@@ -25,7 +25,7 @@
 
 typedef struct Params
 {
-	bool isUnsigned;
+	bool IsUnSigned;
 	bool isShort;
 	bool isLong;
 	bool isPlusFlag;
