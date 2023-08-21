@@ -72,7 +72,7 @@ int printROT13(va_list, specifier_params *);
 int printS(va_list, specifier_params *);
 int print_string(va_list, specifier_params *);
 /* specifier functions */
-int mySpecifier(char);
+int (*mySpecifier(char *s))(va_list , specifier_params *);
 int print_function_call(char, va_list, specifier_params);
 /* function to handle numbers */
 int printAddress(va_list, specifier_params *);
@@ -82,6 +82,7 @@ int printhex(va_list, specifier_params *);
 int printOctal(va_list, specifier_params *);
 int printUnsigned(va_list, specifier_params *);
 int print_numbers(char *, specifier_params *);
+int printInt(va_list, specifier_params *)
 /* convertor function */
 char *convertor(long int, int, int, specifier_params *);
 /* getters functions */

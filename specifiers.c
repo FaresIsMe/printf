@@ -9,6 +9,7 @@
 
 int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
 {
+	(void)myParams;
 		op_t Specifiers[] = {
 				{"c", printingMyChar},
 				{"s", print_string},
