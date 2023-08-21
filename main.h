@@ -54,6 +54,8 @@ void init_params(specifier_params *, va_list);
 //strings printing functions
 int printingMyStringReveresed(va_list);
 int printingMyChar(va_list, specifier_params *);
+int printMyPercent(va_list, specifier_params *);
+int printROT13(va_list, specifier_params *);
 //specifier functions
 int mySpecifier(char);
 int print_function_call(char, va_list, specifier_params)'

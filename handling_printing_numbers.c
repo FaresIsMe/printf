@@ -14,7 +14,7 @@ int print_numbers(char *myString, specifier_params *myParams)
 	unsigned int i = _strlen(str);
 	int neg;
 
-	if(!((*myParams).isUnsigned ) && *myString == '-')
+	if (!(*myParams).isUnsigned && *myString == '-')
 		neg = 1;
 	else
 		neg  = 0;
@@ -25,7 +25,7 @@ int print_numbers(char *myString, specifier_params *myParams)
 	}
 	if ((*myParams).precision != UNIT_MAX)
 	{
-		while(i < (*myParams).precision)
+		while (i < (*myParams).precision)
 		{
 			i  = i + 1;
 			str = str - 1;
@@ -38,8 +38,50 @@ int print_numbers(char *myString, specifier_params *myParams)
 		*str =  '-';
 	}
 	if ((*myParams).isisMinusFlag == 1)
-		return (printMyNumbersWithLeftShift(myString, myParams);
+		return (printMyNumbersWithLeftShift(myString, myParams));
 	else
-		return (printMyNumberWithRightShift(myString, myParams);
+		return (printMyNumberWithRightShift(myString, myParams));
 }
 
+/**
+ * printMyNumberWithRightShift - This is a function to print the number
+ * if it was right shifted
+ * @myString: A pointer to the required string
+ * @myP: A pointer to a specifier_params variable that contains50
+ * the properties of my string
+ *
+ * Return: It returns the number of printed chars
+*/
+
+int printMyNumberWithRightShift(char *myString, specifier_params *myP)
+{
+	unsigned int n = 0, neg, neg2, i = _strlen(myString);
+	char myPadChar = ' ';
+
+	if ((*myP).isZeroFlag && !(*myP).isMinusFlag)
+		myPadChar = '0';
+	neg = neg2 = (!(*myP).isUnsigned && *myString == '-');
+	if (neg && i < (*myP).iswidth && myPadChar == '0' && !((*myP).isMinusFlag)
+			myString = myString + 1;
+	else
+		neg = 0;
+	if ((*myP).isPlusFlag && !neg2)
+	|| ((*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2)
+		i = i + 1;
+	if (neg && myPadChar == '0')
+		n = n + _putchar('-');
+	if ((*myP).isPlusFlag && !neg2 && myPadChar == '0' && !(*myP).isUnsigned)
+		n = n  + _putchar('+');
+	else if (!(*myP).isPlusFlag && (*myP).isSpaceFlag && !neg2 &&
+		!(*myP).isUnsigned && (*myP).isZeroFlag)
+		n = n + _putchar(' ');
+	while (i++ < (*myP).width)
+		n = n + _putchar(myPadChar);
+	if (neg && myPadChar == ' ')
+		n = n + _putchar('-');
+	if ((*myP).isPlusFlag && (*myP).isSpaceFlag && !neg &&
+		!(*myP).isUnsigned && (*myP).isZeroFlag)
+		n = n + _putchar(' ');
+	n = n + _puts(myString);
+	return (n);
+}
