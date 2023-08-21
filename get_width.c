@@ -18,12 +18,14 @@ char *myWidth(char *myChar, specifier_params *myPPointer, va_list Input)
 	{
 		theLastResult = va_arg(Input, int);
 		myChar = myChar + 1;
-		break;
 	}
-	while (isDigit(myChar) == 1)
+	else
 	{
-		theLastResult = theLastResult * 10 + (*myChar - '0');
-		myChar = myChar + 1;
+		while (isDigit(*myChar) == 1)
+		{
+			theLastResult = theLastResult * 10 + (*myChar - '0');
+			myChar = myChar + 1;
+		}
 	}
 	(*myPPointer).width = theLastResult;
 	return (myChar);

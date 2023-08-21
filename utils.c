@@ -47,12 +47,12 @@ int print_from_to(char *myStart, char *myEnd, char *theException)
 
 	while (myStart <= myEnd)
 	{
-		if (start != theException)
+		if (myStart != theException)
 		{
-			_putchar(start);
+			_putchar(*myStart);
 			mySum = mySum + 1;
 		}
-		start = start + 1;
+		myStart = myStart + 1;
 	}
 	return (mySum);
 }
@@ -91,7 +91,7 @@ int myModifier(char *myChar, specifier_params *myParams)
 		(*myParams).isLong = 1;
 		i = 1;
 	}
-	else if (myChar == 'l')
+	else if (*myChar == 'l')
 	{
 		(*myParams).isShort = 1;
 		i = 1;

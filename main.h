@@ -6,9 +6,10 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_BUFFER_SIZE 1024 /* max size of the buffer */
-#define BUFFER_FLUSH_CONITION -1 /* the condition when we flush */
+#define BUFFER_FLUSH_CONDITION -1 /* the condition when we flush */
 
 #define IS_UNSIGNED 1 /* unsigned condition */
 #define IS_LOWERCASE 2 /* lowercase condition */
