@@ -36,7 +36,7 @@ char *convertor(long int num, int myBase, int myFlags, specifier_params *myP)
 		ptr = ptr - 1;
 		*ptr = numbersArray[conditionNum % myBase];
 		conditionNum = conditionNum / 10;
-	} while(num);
+	} while(conditionNum);
 
 	if (theSign != 0)
 	{
