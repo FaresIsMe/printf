@@ -14,7 +14,7 @@ int printAddress(va_list Input, specifier_params *myParams)
 	return (_puts("(nil)"));
 	else
 	s = convertor(num, 16, IS_LOWERCASE | IS_UNSIGNED, myParams);
-	*--s = 'X';
+	*--s = 'x';
 	*--s = '0';
 	return (print_numbers(s, myParams));
 }
