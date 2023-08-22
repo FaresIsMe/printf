@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * convertor - A function to convert any number in any base to a string
  * @num: The inputed number
@@ -12,14 +11,13 @@
 
 char *convertor(long int num, int myBase, int myFlags, specifier_params *myP)
 {
-	char *numbersArray;
+	char numbersArray[40];
 	static char myBuffer[50];
 	char theSign = 0;
 	char *ptr;
 	unsigned long conditionNum = num;
 	(void)myP;
 
-	numbersArray = (char *)malloc(17 * sizeof(char));
 	if (!(myFlags & IS_UNSIGNED) && num < 0)
 	{
 		conditionNum = -1 * num;
@@ -35,19 +33,13 @@ char *convertor(long int num, int myBase, int myFlags, specifier_params *myP)
 	do {
 		ptr = ptr - 1;
 		*ptr = numbersArray[conditionNum % myBase];
-<<<<<<< HEAD
-		conditionNum = conditionNum / 10;
-	} while(conditionNum);
-=======
 		conditionNum = conditionNum / myBase;
-	} while (conditionNum);
->>>>>>> 5fc1fcbce1ef6a4a31be336e5cd342db50425fd2
+	} while(conditionNum);
 
 	if (theSign != 0)
 	{
 		ptr = ptr - 1;
 		*ptr = theSign;
 	}
-	free(numbersArray);
 	return (ptr);
 }
