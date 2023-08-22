@@ -32,16 +32,16 @@ int _printf(const char *format, ...)
 			s++;
 		}
 		s = myWidth(s, &params, arg);
-		s = myPercision(s, &params, arg);
-		if (get_modifier(s, &params))
+		s = myPrecision(s, &params, arg);
+		if (myModifier(s, &params))
 			s++;
 		if (!mySpecifier(s))
 			sum += print_from_to(start, s,
 				params.isShort || params.isLong ? s - 1 : 0);
 		else
-			sum += get_print_func(s, arg, &params);
+			sum += print_function_call(s, arg, &params);
 	}
-	_putchar(BUFFER_FLUSH_CONITION);
+	_putchar(BUFFER_FLUSH_CONDITION);
 	va_end(arg);
 	return (sum);
 }

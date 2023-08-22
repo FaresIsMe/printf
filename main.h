@@ -16,6 +16,7 @@
 
 #define DEFAULT_PARAMS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}  /* A default init */
 
+#define MY_NULL_STRING "(null)"
 
 /**
  * struct Params - A struct that will store the conditions
@@ -37,6 +38,7 @@ typedef struct Params
 	bool IsUnSigned;
 	bool isShort;
 	bool isLong;
+	bool isPlusFlag;
 	bool isMinusFlag;
 	bool isHashtagFlag;
 	bool isZeroFlag;
@@ -73,16 +75,16 @@ int printS(va_list, specifier_params *);
 int print_string(va_list, specifier_params *);
 /* specifier functions */
 int (*mySpecifier(char *s))(va_list , specifier_params *);
-int print_function_call(char, va_list, specifier_params);
+int print_function_call(char *, va_list, specifier_params *);
 /* function to handle numbers */
 int printAddress(va_list, specifier_params *);
 int printBinary(va_list, specifier_params *);
 int printHEX(va_list, specifier_params *);
 int printhex(va_list, specifier_params *);
 int printOctal(va_list, specifier_params *);
-int printUnsigned(va_list, specifier_params *);
+int printUsigned(va_list, specifier_params *);
 int print_numbers(char *, specifier_params *);
-int printInt(va_list, specifier_params *)
+int printInt(va_list, specifier_params *);
 /* convertor function */
 char *convertor(long int, int, int, specifier_params *);
 /* getters functions */

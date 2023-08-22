@@ -10,7 +10,7 @@
  * Return: It returns a pointer to the num after conversion to a string
 */
 
-char *convertor(long int num, int myBase, int myFlag, specifier_params *myP)
+char *convertor(long int num, int myBase, int myFlags, specifier_params *myP)
 {
 	char *numbersArray;
 	static char myBuffer[50];
@@ -34,14 +34,14 @@ char *convertor(long int num, int myBase, int myFlag, specifier_params *myP)
 	*ptr = '\0';
 	do {
 		ptr = ptr - 1;
-		*ptr = numbersArray[num % myBase];
-		num = num / 10;
-	} (num);
+		*ptr = numbersArray[conditionNum % myBase];
+		conditionNum = conditionNum / 10;
+	} while(num);
 
-	if (sign != 0)
+	if (theSign != 0)
 	{
 		ptr = ptr - 1;
-		*ptr = sign;
+		*ptr = theSign;
 	}
 	free(numbersArray);
 	return (ptr);

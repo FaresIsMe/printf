@@ -45,7 +45,7 @@ int printingMyChar(va_list myChars, specifier_params *myParams)
 int printingMyStringReveresed(va_list strPtr, specifier_params *myParams)
 {
 	unsigned int len = 0, sum = 0;
-	char *myString = va_arg(strPtr);
+	char *myString = va_arg(strPtr, char *);
 	(void)myParams;
 	if (myString != NULL)
 	{
@@ -72,11 +72,10 @@ int printingMyStringReveresed(va_list strPtr, specifier_params *myParams)
 int printROT13(va_list myPtr, specifier_params *myParams)
 {
 	unsigned int sum = 0, i = 0, myIndex = 0;
-
-	void (myParams);
 	char *myString;
 	char myArray[] = "NOPQRSTUVWXYZABCDEFGHIJKLM   nopqrstuvwxyzabcdefghijklm";
-
+	
+	(void)myParams;
 	myString = va_arg(myPtr, char *);
 	while (myString[i] != '\0')
 	{
@@ -84,7 +83,7 @@ int printROT13(va_list myPtr, specifier_params *myParams)
 			|| (myString[i] >= 'a' && myString[i] <= 'z'))
 		{
 			myIndex = myString[i] - 65;
-			_putchar(myString[i]);
+			_putchar(myArray[myIndex]);
 			sum = sum + 1;
 		}
 		else
@@ -104,7 +103,7 @@ int printROT13(va_list myPtr, specifier_params *myParams)
 */
 int printS(va_list Input, specifier_params *myParams)
 {
-	char *string = va_ag(Input, char *);
+	char *string = va_arg(Input, char *);
 	char *X;
 	int bytes_sum = 0;
 
@@ -118,7 +117,7 @@ int printS(va_list Input, specifier_params *myParams)
 			bytes_sum += _putchar('\\');
 			bytes_sum += _putchar('x');
 			X = convertor(*string, 16, 0, myParams);
-			if (X[1] == NULL)
+			if (!X[1])
 				bytes_sum += _putchar('0');
 			bytes_sum += _puts(X);
 		}
@@ -140,16 +139,16 @@ int printS(va_list Input, specifier_params *myParams)
 
 int print_string(va_list myString, specifier_params *myParams)
 {
-	char *myString = va_arg(myString, char *);
+	char *myStr = va_arg(myString, char *);
 	char myPadChar = ' ';
 	unsigned int pad = 0, mySum = 0, i = 0, j;
 
-	void(myParams);
-	if ((int)!myString)
-		myString = "null";
+	(void)myParams;
+	if ((int)!myStr)
+		strcpy(myStr,MY_NULL_STRING);
 
-	j = _strlen(myString);
-	pad = _strlen(myString);
+	j = _strlen(myStr);
+	pad = _strlen(myStr);
 
 	if ((*myParams).precision < pad)
 		j = pad = (*myParams).precision;
@@ -158,10 +157,10 @@ int print_string(va_list myString, specifier_params *myParams)
 		if ((*myParams).precision != UINT_MAX)
 		{
 			for (i = 0; i < pad; i++)
-				mySum = mySum + _putChar(*myString++);
+				mySum = mySum + _putchar(*myStr++);
 		}
 		else
-			mySum = mySum + _puts(myString);
+			mySum = mySum + _puts(myStr);
 	}
 	while (j++ < (*myParams).width)
 		mySum = mySum + _putchar(myPadChar);
@@ -171,12 +170,12 @@ int print_string(va_list myString, specifier_params *myParams)
 		{
 			for (i = 0; i < pad; i++)
 			{
-				mySum = mySum + _putchar(*myString);
-				myString = myString + 1;
+				mySum = mySum + _putchar(*myStr);
+				myStr = myStr + 1;
 			}
 		}
 		else
-			mySum = mySum + _puts(myString);
+			mySum = mySum + _puts(myStr);
 	}
 	return (mySum);
 }

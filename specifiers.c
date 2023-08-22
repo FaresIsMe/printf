@@ -9,29 +9,30 @@
 
 int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
 {
-	(void)myParams;
-		op_t Specifiers[] = {
-				{"c", printingMyChar},
-				{"s", print_string},
-				{"d", printInt},
-				{"i", printInt},
-				{"%", printMyPercent},
-				{"b", printBinary},
-				{"o", printOctal},
-				{"u", printUnsigned},
-				{"x", printhex},
-				{"X", printHEX},
-				{"p", printAddress},
-				{"S", printS},
-				{"r",  printingMyStringReveresed},
-				{"R", printROT13},
-				{NULL, NULL}
-	};
-	int i = 0;
+	int i;
 
+	op_t Specifiers[] = {
+	{"c", printingMyChar},
+	{"s", print_string},
+	{"d", printInt},
+	{"i", printInt},
+	{"%", printMyPercent},
+	{"b", printBinary},
+	{"o", printOctal},
+	{"u", printUsigned},
+	{"x", printhex},
+	{"X", printHEX},
+	{"p", printAddress},
+	{"S", printS},
+	{"r", printingMyStringReveresed},
+	{"R", printROT13},
+	{NULL, NULL}
+	};
+	i = 0;
+	
 	while (Specifiers[i].op)
 	{
-		if (Specifiers[i].op[0] == s)
+		if (Specifiers[i].op[0] == *s)
 			return (Specifiers[i].myFunc);
 		i++;
 	}
@@ -47,12 +48,12 @@ int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
  * Return: The right function on success (myFunc), 0 if (myFunc is null)
 */
 
-int print_function_call(char s, va_list Input, specifier_params p)
+int print_function_call(char *s, va_list Input, specifier_params *p)
 {
 	int (*myFunc)(va_list, specifier_params*) = mySpecifier(s);
 
 	if (myFunc != NULL)
-		return (myFunc(Input, &p));
+		return (myFunc(Input, p));
 	else
 		return (0);
 }
@@ -64,7 +65,7 @@ int print_function_call(char s, va_list Input, specifier_params p)
 */
 int printInt(va_list Input, specifier_params *myParams)
 {
-		long integer;
+	long integer;
 
 	if (myParams->isLong)
 		integer = va_arg(Input, long);
@@ -72,5 +73,5 @@ int printInt(va_list Input, specifier_params *myParams)
 		integer = (short int)va_arg(Input, int);
 	else
 		integer = (int)va_arg(Input, int);
-	return (print_number(convert(integer, 10, 0, myParams), myParams));
+	return (print_numbers(convertor(integer, 10, 0, myParams), myParams));
 }
