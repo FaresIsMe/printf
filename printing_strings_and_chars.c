@@ -77,7 +77,7 @@ int printROT13(va_list myPtr, specifier_params *myParams)
 	
 	(void)myParams;
 	myString = va_arg(myPtr, char *);
-	while (myString[i] != '\0')
+	while (myString[i])
 	{
 		if ((myString[i] >= 'A' && myString[i] <= 'Z')
 			|| (myString[i] >= 'a' && myString[i] <= 'z'))
