@@ -7,7 +7,7 @@
  * will use to determine which data type will be printed
 */
 
-int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
+int (*mySpecifier(char *s)) (va_list arg, specifier_params * myParams)
 {
 	int i;
 
@@ -29,7 +29,7 @@ int (*mySpecifier(char *s))(va_list arg, specifier_params *myParams)
 	{NULL, NULL}
 	};
 	i = 0;
-	
+
 	while (Specifiers[i].op)
 	{
 		if (Specifiers[i].op[0] == *s)

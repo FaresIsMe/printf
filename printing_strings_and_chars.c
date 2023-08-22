@@ -71,25 +71,23 @@ int printingMyStringReveresed(va_list strPtr, specifier_params *myParams)
 
 int printROT13(va_list myPtr, specifier_params *myParams)
 {
-	unsigned int sum = 0, i = 0, myIndex = 0;
+	int sum = 0, i = 0, myIndex = 0;
 	char *myString;
-	char myArray[] = "NOPQRSTUVWXYZABCDEFGHIJKLM   nopqrstuvwxyzabcdefghijklm";
+	char myArray[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	
 	(void)myParams;
 	myString = va_arg(myPtr, char *);
-	while (myString[i] != '\0')
+	while (myString[i])
 	{
 		if ((myString[i] >= 'A' && myString[i] <= 'Z')
 			|| (myString[i] >= 'a' && myString[i] <= 'z'))
 		{
 			myIndex = myString[i] - 65;
-			_putchar(myArray[myIndex]);
-			sum = sum + 1;
+			sum = sum + _putchar(myArray[myIndex]);
 		}
 		else
 		{
-			_putchar(myString[i]);
-			sum  = sum + 1;
+			sum = sum + _putchar(myString[i]);
 		}
 		i = i + 1;
 	}

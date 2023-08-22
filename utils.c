@@ -26,9 +26,11 @@ int _strlen(char *myString)
 {
 	int i = 0;
 
-	while (myString != NULL)
+	while (*myString)
+	{
 		i = i + 1;
-
+		myString = myString + 1;
+	}
 	return (i);
 }
 

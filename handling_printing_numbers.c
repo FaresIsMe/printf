@@ -122,6 +122,7 @@ int printMyNumberWithLeftShift(char *myString, specifier_params *myP)
 	{
 		_putchar(myPadChar);
 		n = n + 1;
+		i = i + 1;
 	}
 	return (n);
 }
