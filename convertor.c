@@ -4,7 +4,7 @@
  * convertor - A function to convert any number in any base to a string
  * @num: The inputed number
  * @myBase: The base of the inputed number
- * @myFlag: An integer that represents if some flags are
+ * @myFlags: An integer that represents if some flags are
  * included in the inputed number
  * @myP: A pointer that will not be used here
  * Return: It returns a pointer to the num after conversion to a string
@@ -36,7 +36,7 @@ char *convertor(long int num, int myBase, int myFlags, specifier_params *myP)
 		ptr = ptr - 1;
 		*ptr = numbersArray[conditionNum % myBase];
 		conditionNum = conditionNum / myBase;
-	} while(conditionNum);
+	} while (conditionNum);
 
 	if (theSign != 0)
 	{
