@@ -85,7 +85,7 @@ int printhex(va_list Input, specifier_params *myParams)
 	s = convertor(num, 16, IS_UNSIGNED | IS_LOWERCASE, myParams);
 	if (myParams->isHashtagFlag && num)
 	{
-		*--s = 'X';
+		*--s = 'x';
 		*--s = '0';
 	}
 	myParams->IsUnSigned = 1;
