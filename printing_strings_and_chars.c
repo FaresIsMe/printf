@@ -71,7 +71,7 @@ int printingMyStringReveresed(va_list strPtr, specifier_params *myParams)
 
 int printROT13(va_list myPtr, specifier_params *myParams)
 {
-	unsigned int sum = 0, i = 0, myIndex = 0;
+	int sum = 0, i = 0, myIndex = 0;
 	char *myString;
 	char myArray[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	
