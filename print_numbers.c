@@ -7,7 +7,7 @@
 */
 int printAddress(va_list Input, specifier_params *myParams)
 {
-	unsigned long int num = va_arg(Input, unsigned int);
+	unsigned long int num = va_arg(Input, unsigned long);
 	char *s;
 
 	if (num == 0)
